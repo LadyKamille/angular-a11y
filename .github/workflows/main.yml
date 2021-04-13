@@ -24,5 +24,14 @@ jobs:
       - name: Step 3 - Run eslint
         run: yarn run lint
 
-      - name: Step 4 - Build and Deploy
-        run: yarn run deploy
+      - name: Step 4 - Run tests
+        run: yarn run test
+
+      - name: Step 5 - Build
+        run: yarn run deploy-build
+
+      - name: Step 5 - Deploy
+        run: |
+          git config --global user.email "kamionorato@gmail.com"
+          git config --global user.name "LadyKamille"
+          yarn run deploy
