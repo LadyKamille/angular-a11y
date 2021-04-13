@@ -25,7 +25,7 @@ jobs:
         run: yarn run lint
 
       - name: Step 4 - Build
-        run: yarn run deploy-build
+        run: yarn run build
 
       - name: Step 5 - Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
