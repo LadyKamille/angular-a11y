@@ -24,11 +24,5 @@ jobs:
       - name: Step 3 - Run eslint
         run: yarn run lint
 
-      - name: Step 4 - Build
-        run: yarn run build
-
-      - name: Step 5 - Deploy to gh-pages
-        run: |
-          git config --global user.email "kamionorato@gmail.com"
-          git config --global user.name "LadyKamille"
-          yarn run deploy
+      - name: Step 4 - Build and Deploy
+        run: ng deploy --base-href=https://github.com/LadyKamille/angular-a11y
