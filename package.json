@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy-build": "ng build --prod --base-href=/.//",
+    "deploy-build": "ng build --prod --base-href=/https://LadyKamille.github.io/angular-a11y//",
     "deploy": "gh-pages -d dist"
   },
   "private": true,
