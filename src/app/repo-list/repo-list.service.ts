@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { map, retry, shareReplay } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-const API_ENDPOINT = 'https://api.github.com';
 const CACHE_SIZE = 1;
 
 @Injectable({
@@ -11,6 +10,7 @@ const CACHE_SIZE = 1;
 })
 export class RepoListService {
   private cache$!: Observable<any>;
+  readonly API_URL = 'https://api.github.com';
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +25,7 @@ export class RepoListService {
   }
 
   getRepos() {
-    return this.http.get(`${API_ENDPOINT}/users/LadyKamille/repos`)
+    return this.http.get(`${this.API_URL}/users/LadyKamille/repos`)
       .pipe(
         map((response: any) => {
           return response?.map((item: any) => item);
@@ -35,7 +35,7 @@ export class RepoListService {
   }
 
   getLanguages(repo: string) {
-    return this.http.get(`${API_ENDPOINT}/users/LadyKamille/${repo}/languages`)
+    return this.http.get(`${this.API_URL}/users/LadyKamille/${repo}/languages`)
       .pipe(
         map((response: any) => {
           return response?.map((item: any) => item);

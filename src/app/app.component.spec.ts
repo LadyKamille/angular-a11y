@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { RepoListComponent } from './repo-list/repo-list.component';
+import { RepoListService } from './repo-list/repo-list.service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -13,6 +14,10 @@ describe('AppComponent', () => {
         AppComponent,
         RepoListComponent
       ],
+      providers: [{
+        provide: RepoListService,
+        useValue: jasmine.createSpy('RepoListService')
+      }],
     }).compileComponents();
   });
 

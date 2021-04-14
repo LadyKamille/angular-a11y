@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
 import * as axe from 'axe-core';
 import { Observable, of, Subject, throwError } from 'rxjs';
@@ -6,7 +6,7 @@ import { Observable, of, Subject, throwError } from 'rxjs';
 import { RepoListComponent } from './repo-list.component';
 import { RepoListService } from './repo-list.service';
 
-fdescribe('RepoListComponent', () => {
+describe('RepoListComponent', () => {
   let component: RepoListComponent;
   let fixture: ComponentFixture<RepoListComponent>;
   let repoListService: any;
@@ -59,34 +59,6 @@ fdescribe('RepoListComponent', () => {
       expect(cardContent).toContain('Bar');
     });
   });
-
-  // it('should show the loading state', () => {
-  //   component.repos$ = of(null);
-  //   component.error$ = new Subject<string>();
-  //   component.error$.next();
-  //
-  //   const spinner = document.getElementsByTagName('mat-spinner')[0];
-  //   console.log('spinner', spinner);
-  //   expect(spinner).toBeTruthy();
-  // });
-  //
-  // fit('should show the error state', () => {
-  //   spyOn(component, 'getRepoList').and.returnValue(of(null));
-  //   component.ngOnInit()
-  //   fixture.whenStable().then(() => {
-  //     fixture.detectChanges();
-  //     component.error$.hasError = true;
-  //     component.error$.thrownError = { message: 'foo' };
-  //     console.log('component.error$', component.error$);
-  //     console.log('component.repos$', component.repos$);
-  //
-  //     const error = fixture.nativeElement.querySelector('.error-content');
-  //     const div = fixture.nativeElement.querySelector('.repo-list');
-  //     console.log('div', div);
-  //     console.log('error', error);
-  //     expect(error).toBeTruthy();
-  //   });
-  // });
 
   it('should be accessible', (done: DoneFn) => {
     fixture.whenStable().then(() => {

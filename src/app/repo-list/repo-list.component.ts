@@ -20,10 +20,9 @@ export class RepoListComponent implements OnInit {
   }
 
   getRepoList() {
-    console.log('the fuck');
     return this.repoListService.repos.pipe(
       catchError((error) => {
-        console.error('error loading the list of users', error);
+        console.error('error loading the list of repos', error);
         this.error$.next(error?.message);
         return of();
       })
