@@ -16,7 +16,7 @@ export class RepoListComponent implements OnInit {
   constructor(private repoListService: RepoListService) { }
 
   ngOnInit(): void {
-    this.repos$ = this.repoListService.getRepos().pipe(
+    this.repos$ = this.repoListService.repos.pipe(
       catchError((error) => {
         console.error('error loading the list of users', error);
         this.error$.next(error?.message);

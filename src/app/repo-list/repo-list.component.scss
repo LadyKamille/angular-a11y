@@ -1,3 +1,25 @@
+h1 {
+  text-align: center;
+}
+
+.repos-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+
+  .repo-card {
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    margin: 15px;
+
+    .mat-card-header {
+      justify-content: center;
+    }
+  }
+}
+
 .error-card {
   max-width: 400px;
   margin: 20px auto;
