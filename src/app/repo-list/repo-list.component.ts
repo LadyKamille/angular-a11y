@@ -10,13 +10,18 @@ import { catchError } from 'rxjs/operators';
   styleUrls: ['./repo-list.component.scss']
 })
 export class RepoListComponent implements OnInit {
-  error$ = new Subject<boolean>();
+  error$ = new Subject<string>();
   repos$!:Observable<any>;
 
   constructor(private repoListService: RepoListService) { }
 
   ngOnInit(): void {
-    this.repos$ = this.repoListService.repos.pipe(
+    this.repos$ = this.getRepoList();
+  }
+
+  getRepoList() {
+    console.log('the fuck');
+    return this.repoListService.repos.pipe(
       catchError((error) => {
         console.error('error loading the list of users', error);
         this.error$.next(error?.message);

@@ -1,7 +1,10 @@
-<div *ngIf="repos$ | async as repos; else loadingOrError">
+<div
+  class="repo-list"
+  *ngIf="repos$ | async as repos; else loadingOrError"
+>
   <h1>My Repos</h1>
 
-  <div class="repos-list">
+  <div class="repo-card-list">
     <mat-card class="repo-card" *ngFor="let repo of repos">
       <mat-card-header>
         <mat-card-title>{{ repo.name }}</mat-card-title>

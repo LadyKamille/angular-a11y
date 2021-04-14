@@ -14,7 +14,7 @@ export class RepoListService {
 
   constructor(private http: HttpClient) { }
 
-  get repos() {
+  get repos(): Observable<any> {
     if (!this.cache$) {
       this.cache$ = this.getRepos().pipe(
         shareReplay(CACHE_SIZE)
