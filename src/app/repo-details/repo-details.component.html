@@ -1,0 +1,19 @@
+<div *ngIf="repo else error">
+  <p>
+    {{ repo?.name }}
+  </p>
+
+  <mat-chip-list aria-label="Repository Languages">
+    <mat-chip *ngFor="let language of languages$ | async">
+      {{language?.name}}
+    </mat-chip>
+  </mat-chip-list>
+</div>
+
+<ng-template #error>
+  <p>
+    Oh no! There was an error loading the repo details
+  </p>
+</ng-template>
+
+<a routerLink="/" mat-button>Go Back</a>
